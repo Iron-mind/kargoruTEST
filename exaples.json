@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "nombre_cotizante": "eso                                                                                                                                                                                                                                                            ",
+        "email_cotizante": "eso                                                                                                                                                                                                                                                            ",
+        "valor": 66196,
+        "createdAt": "2022-07-12T05:11:13.971Z",
+        "updatedAt": "2022-07-12T05:11:13.971Z",
+        "Puntos": [{
+            "id": 1,
+            "continente": "Africa                                                                                                                                                                                                                                                         ",
+            "pais": "Kongo                                                                                                                                                                                                                                                          ",
+            "ciudad": "cualquiera                                                                                                                                                                                                                                                     ",
+            "direccion": "xxx                                                                                                                                                                                                                                                            ",
+            "createdAt": "2022-07-12T05:11:13.051Z",
+            "updatedAt": "2022-07-12T05:11:14.074Z",
+            "cotizacion_id": 1,
+            "CotizacionId": null
+        }, {
+            "id": 2,
+            "continente": "Africa                                                                                                                                                                                                                                                         ",
+            "pais": "Kongo                                                                                                                                                                                                                                                          ",
+            "ciudad": "cualquiera                                                                                                                                                                                                                                                     ",
+            "direccion": "xxx                                                                                                                                                                                                                                                            ",
+            "createdAt": "2022-07-12T05:11:13.870Z",
+            "updatedAt": "2022-07-12T05:11:14.074Z",
+            "cotizacion_id": 1,
+            "CotizacionId": null
+        }]
+]

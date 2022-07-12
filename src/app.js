@@ -1,35 +1,36 @@
-const express = require('express');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
-const morgan = require('morgan');
-const routes = require('./routes/index.js');
+import express from 'express';
+import config from '../lib/config.js';
+import cookieParser from "cookie-parser"
+import morgan from "morgan"
+import cors from "cors"
+import routes from './routes/index.js';
+//-----------------------------------
 
-require('./db.js');
 
-const server = express();
+const app = express();
+app.use(express.urlencoded({extended: true, limit: '50mb'})); //middleware
+app.use(express.json({limit: '50mb'}));
+app.use(cookieParser());
+app.use(morgan('dev'));
 
-server.name = 'API';
+app.use(
+	cors({
+		origin: "*",
+		credentials: true,
+		methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE'],
+		allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept'],
+	})
+);
 
-server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
-server.use(bodyParser.json({ limit: '50mb' }));
-server.use(cookieParser());
-server.use(morgan('dev'));
-server.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*'); 
-  res.header('Access-Control-Allow-Credentials', 'true');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
-  next();
+
+app.use((err, req, res, next) => {
+	// eslint-disable-line no-unused-vars
+	const status = err.status || 500;
+	const message = err.message || err;
+	console.error(err);
+	res.status(status).send(message);
 });
 
-server.use('/', routes);
+app.use('/api', routes);
 
-// Error catching endware.
-server.use((err, req, res, next) => { 
-  const status = err.status || 500;
-  const message = err.message || err;
-  console.error(err);
-  res.status(status).send(message);
-});
-
-module.exports = server;
+export default app;
