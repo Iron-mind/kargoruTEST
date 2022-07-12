@@ -21,9 +21,25 @@ const Cotizacion = sequelize.define(
         valor:{
             type:DataTypes.INTEGER,
             allowNull:false
+        },
+        peso_kg:{
+            type:DataTypes.REAL,
+            allowNull:false
+        },
+        medidas:{
+            type:DataTypes.TEXT,
+            allowNull:false
+        },
+        fragil:{
+            type:DataTypes.BOOLEAN,
+            allowNull:false,
+            defaultValue:false
+        },
+        titulo:{
+          type:DataTypes.TEXT
         }
     });
-   
-  
+
+
 
 export default  Cotizacion;

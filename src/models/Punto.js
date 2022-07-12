@@ -20,22 +20,10 @@ const Punto = sequelize.define(
         direccion:{
             type:DataTypes.TEXT,
             allowNull:false
-        },
-        peso_kg:{
-            type:DataTypes.NUMBER,
-            allowNull:false
-        },
-        medidas:{
-            type:DataTypes.TEXT,
-            allowNull:false
-        },
-        fragil:{
-            type:DataTypes.BOOLEAN,
-            allowNull:false,
-            defaultValue:false
         }
+
     });
-    
- 
+
+
 
 export default Punto;
