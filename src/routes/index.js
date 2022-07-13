@@ -32,7 +32,7 @@ router.get("/cotizacion", async (req, res) => {
 router.post("/cotizacion", async (req, res) => {
   try {
     let cot = req.body
-    console.log('cot',cot);
+
     let { puntos } = cot;
     let valor = getCotizacion(puntos[0],puntos[1])
     let puntoA = await Punto.create(puntos[0]);
@@ -57,7 +57,7 @@ router.put("/cotizacion", async (req, res) => {
 
     let puntoA = await Punto.findByPk(puntos[0].id);
     let puntoB = await Punto.findByPk(puntos[1].id);
-    console.log(puntoA);
+
     await Contizacion.update(
       cot,
       { where: { id } }
