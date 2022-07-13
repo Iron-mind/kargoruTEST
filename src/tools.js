@@ -4,10 +4,10 @@ export function getCotizacion(puntoA, puntoB) {
     valor = valor * 0.9;
   }
   if (puntoA.pais==puntoB.pais) {
-    valor = valor * 0.8;    
+    valor = valor * 0.8;
   }
   if (puntoA.ciudad==puntoB.ciudad) {
-    valor = valor * 0.5;    
+    valor = valor * 0.5;
   }
    return valor;
 }
