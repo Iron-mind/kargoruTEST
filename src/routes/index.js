@@ -32,11 +32,12 @@ router.get("/cotizacion", async (req, res) => {
 router.post("/cotizacion", async (req, res) => {
   try {
     let cot = req.body
+    console.log('cot',cot);
     let { puntos } = cot;
-    let valor = Math.floor(Math.random() * (100000 - 1 + 1)) + 1;
+    let valor = getCotizacion(puntos[0],puntos[1])
     let puntoA = await Punto.create(puntos[0]);
     let puntoB = await Punto.create(puntos[1]);
-    let cotizacion = await Contizacion.create(cot);
+    let cotizacion = await Contizacion.create({...cot,valor});
     await cotizacion.addPuntos([puntoA, puntoB]);
     cotizacion = await Contizacion.findByPk(cotizacion.id, {
       include: [Punto],
